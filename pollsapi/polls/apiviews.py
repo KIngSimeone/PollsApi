@@ -6,7 +6,8 @@ from rest_framework import viewsets
 
 
 from .models import Poll,Choice
-from .serializers import PollSerializer, ChoiceSerializer, VoteSerializer
+from .serializers import PollSerializer, ChoiceSerializer, VoteSerializer, UserSerializer
+
 
 
 class PollList(generics.ListCreateAPIView):
@@ -40,3 +41,7 @@ class CreateVote(generics.ListCreateAPIView):
 class PollViewSet(viewsets.ModelViewSet):
     queryset = Poll.objects.all()
     serializer_class = PollSerializer
+
+class UserCreate(generics.CreateAPIView):
+    serializer_class = UserSerializer
+
